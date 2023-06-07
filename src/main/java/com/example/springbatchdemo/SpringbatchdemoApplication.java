@@ -8,6 +8,7 @@ public class SpringbatchdemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringbatchdemoApplication.class, args);
+
     }
 
 }

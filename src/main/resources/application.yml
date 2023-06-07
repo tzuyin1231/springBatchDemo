@@ -1,0 +1,14 @@
+file:
+  input: ./static/coffee-list.csv
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:32770/springbatchdemo
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  batch:
+    jdbc:
+      initialize-schema: always
