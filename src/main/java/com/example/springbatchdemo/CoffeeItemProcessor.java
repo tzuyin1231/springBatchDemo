@@ -11,12 +11,13 @@ public class CoffeeItemProcessor implements ItemProcessor<Coffee, Coffee> {
 //    傳入參數 final Coffee coffee 是從 FlatFileItemReader<Coffee> 來的
     @Override
     public Coffee process(final Coffee coffee) throws Exception {
+        Integer id = coffee.getId();
         String brand = coffee.getBrand().toUpperCase();
         String origin = coffee.getOrigin().toUpperCase();
         String chracteristics = coffee.getCharacteristics().toUpperCase();
 
-        Coffee transformedCoffee = new Coffee(brand, origin, chracteristics);
-        log.info("Converting ( {} ) into ( {} )", coffee, transformedCoffee);
+        Coffee transformedCoffee = new Coffee(id, brand, origin, chracteristics);
+        log.info("{}:  Converting ( {} ) into ( {} )", coffee.getId(),coffee, transformedCoffee);
 
         return transformedCoffee;
     }

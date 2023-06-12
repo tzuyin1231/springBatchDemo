@@ -2,11 +2,21 @@ package com.example.springbatchdemo.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import java.util.UUID;
 
 @Entity
 @Table(name="Coffee")
 public class Coffee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "coffee_id")
+    private Integer id;
 
     @Column(name = "brand")
     private String brand;
@@ -18,8 +28,26 @@ public class Coffee {
         this.origin = origin;
         this.characteristics = characteristics;
     }
+
+
+    public Coffee(Integer id, String brand, String origin, String characteristics) {
+        this.id = id;
+        this.brand = brand;
+        this.origin = origin;
+        this.characteristics = characteristics;
+    }
+
     public Coffee() {
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     // getters and setters
     public String getBrand() {
         return brand;
